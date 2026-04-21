@@ -619,6 +619,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 15px;
   line-height: 1.55;
   color: var(--text-soft);
+  flex: 1 1 auto;
 }
 .assignment-toggle {
   margin-top: 28px;
@@ -741,15 +742,15 @@ a { color: inherit; text-decoration: none; }
 }
 .build-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
 }
 .build-card {
   position: relative;
   overflow: hidden;
   border: 1px solid var(--border);
   background: #050505;
-  min-height: 420px;
+  min-height: 520px;
 }
 .build-card img {
   width: 100%;
@@ -757,11 +758,14 @@ a { color: inherit; text-decoration: none; }
   object-fit: cover;
   display: block;
 }
+.build-card.mobile-command img {
+  object-position: center center;
+}
 .build-card::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.35) 42%, rgba(0,0,0,0.08) 70%, rgba(0,0,0,0.02) 100%);
+  background: linear-gradient(to top, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.82) 22%, rgba(0,0,0,0.38) 52%, rgba(0,0,0,0.08) 78%, rgba(0,0,0,0.02) 100%);
   pointer-events: none;
 }
 .build-card-copy {
@@ -770,19 +774,26 @@ a { color: inherit; text-decoration: none; }
   right: 0;
   bottom: 0;
   z-index: 1;
-  padding: 24px 22px 22px;
+  min-height: 148px;
+  padding: 26px 24px 24px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  justify-content: flex-end;
+  gap: 8px;
 }
 .build-card-title {
   font-family: var(--display);
   font-weight: 700;
-  font-size: clamp(24px, 2.4vw, 34px);
-  line-height: 0.95;
+  font-size: clamp(22px, 2vw, 30px);
+  line-height: 0.9;
   letter-spacing: -0.01em;
   color: var(--text);
   text-transform: uppercase;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  max-width: 16ch;
 }
 .build-card-body {
   font-family: var(--body);
@@ -790,22 +801,21 @@ a { color: inherit; text-decoration: none; }
   font-size: 15px;
   line-height: 1.55;
   color: var(--text-soft);
-  max-width: 24ch;
-}
-@media (max-width: 1220px) {
-  .build-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  max-width: 28ch;
 }
 @media (max-width: 780px) {
-  .build-section {
-    padding: 110px 24px;
-  }
   .build-grid {
     grid-template-columns: 1fr;
   }
+  .build-section {
+    padding: 110px 24px;
+  }
   .build-card {
-    min-height: 360px;
+    min-height: 420px;
+  }
+  .build-card-copy {
+    min-height: 136px;
+    padding: 22px 20px 20px;
   }
 }
 
@@ -1055,20 +1065,21 @@ a { color: inherit; text-decoration: none; }
         <p class="stat-item-body">
           Builders create what holds the movement: infrastructure, systems, platforms, safe houses, tools, logistics. The unseen scaffolding that makes multiplication possible.
         </p>
+        <button class="assignment-toggle build-jump-toggle" type="button" data-target="the-build">Open Assignment</button>
       </div>
     </div>
   </div>
 </section>
 
 <!-- THE BUILD -->
-<section class="build-section">
+<section class="build-section" id="the-build">
   <div class="build-head reveal">
     <div class="label">The Build</div>
     <h2 class="headline">What Builders Make <span class="gold">Possible</span></h2>
     <p class="build-support">The work on the front lines is sustained by what gets built behind them.</p>
   </div>
   <div class="build-grid reveal">
-    <article class="build-card">
+    <article class="build-card mobile-command">
       <img src="assets/build/mobile-command-center.jpg" alt="A mobile command center vehicle prepared for field deployment.">
       <div class="build-card-copy">
         <h3 class="build-card-title">Mobile Command Centers</h3>
@@ -1214,6 +1225,7 @@ a { color: inherit; text-decoration: none; }
   };
 
   assignmentButtons.forEach((button) => {
+    if (button.classList.contains('build-jump-toggle')) return;
     button.addEventListener('click', () => {
       const isOpen = button.getAttribute('aria-expanded') === 'true';
       assignmentButtons.forEach((otherButton) => {
@@ -1224,6 +1236,14 @@ a { color: inherit; text-decoration: none; }
       } else {
         openAssignment(button);
       }
+    });
+  });
+
+  document.querySelectorAll('.build-jump-toggle').forEach((button) => {
+    button.addEventListener('click', () => {
+      const target = document.getElementById(button.dataset.target);
+      if (!target) return;
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 </script>

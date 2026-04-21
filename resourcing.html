@@ -719,6 +719,96 @@ a { color: inherit; text-decoration: none; }
   .stat-trio { grid-template-columns: 1fr; }
 }
 
+/* Building detail cards */
+.build-section {
+  border-top: 1px solid var(--border);
+  padding: 140px 48px;
+  max-width: var(--max-w-wide);
+  margin: 0 auto;
+  background: #000000;
+}
+.build-head {
+  max-width: 760px;
+  margin-bottom: 56px;
+}
+.build-support {
+  font-family: var(--body);
+  font-weight: 300;
+  font-size: clamp(18px, 1.9vw, 22px);
+  line-height: 1.55;
+  color: var(--text-soft);
+  max-width: 720px;
+}
+.build-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+.build-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #050505;
+  min-height: 420px;
+}
+.build-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.build-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.35) 42%, rgba(0,0,0,0.08) 70%, rgba(0,0,0,0.02) 100%);
+  pointer-events: none;
+}
+.build-card-copy {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  padding: 24px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.build-card-title {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(24px, 2.4vw, 34px);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  text-transform: uppercase;
+}
+.build-card-body {
+  font-family: var(--body);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text-soft);
+  max-width: 24ch;
+}
+@media (max-width: 1220px) {
+  .build-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 780px) {
+  .build-section {
+    padding: 110px 24px;
+  }
+  .build-grid {
+    grid-template-columns: 1fr;
+  }
+  .build-card {
+    min-height: 360px;
+  }
+}
+
 /* Feature area */
 .feature {
   padding: 48px 44px;
@@ -965,52 +1055,47 @@ a { color: inherit; text-decoration: none; }
         <p class="stat-item-body">
           Builders create what holds the movement: infrastructure, systems, platforms, safe houses, tools, logistics. The unseen scaffolding that makes multiplication possible.
         </p>
-        <button class="assignment-toggle" type="button" aria-expanded="false" aria-controls="assignment-building">Open Assignment</button>
-        <div class="assignment-panel" id="assignment-building">
-          <div class="assignment-inner">
-            <div class="assignment-section">
-              <div class="assignment-label">The Role</div>
-              <div class="assignment-stack">
-                <div>
-                  <div class="assignment-item-title">Infrastructure</div>
-                  <div class="assignment-copy">Create the physical and operational foundation for the mission to function and grow.</div>
-                </div>
-                <div>
-                  <div class="assignment-item-title">Systems</div>
-                  <div class="assignment-copy">Design repeatable workflows, structures, and processes that bring order and scalability.</div>
-                </div>
-                <div>
-                  <div class="assignment-item-title">Platforms</div>
-                  <div class="assignment-copy">Build digital tools and communication systems that connect people, teams, and mission activity.</div>
-                </div>
-                <div>
-                  <div class="assignment-item-title">Safe Houses</div>
-                  <div class="assignment-copy">Prepare places of refuge, discipleship, restoration, and ministry hospitality.</div>
-                </div>
-                <div>
-                  <div class="assignment-item-title">Tools</div>
-                  <div class="assignment-copy">Create and equip the mission with practical tools needed for effectiveness in the field.</div>
-                </div>
-                <div>
-                  <div class="assignment-item-title">Logistics</div>
-                  <div class="assignment-copy">Coordinate movement, supply, deployment, scheduling, and operational support across regions.</div>
-                </div>
-              </div>
-            </div>
-            <div class="assignment-section">
-              <div class="assignment-label">The Mission</div>
-              <div class="assignment-stack">
-                <div class="assignment-copy"><strong>3 Mobile Command Centers</strong><br/>Built and deployed to support movement on the ground.</div>
-                <div class="assignment-copy"><strong>National infrastructure</strong><br/>Systems and structures that allow the mission to operate across states.</div>
-                <div class="assignment-copy"><strong>Safe houses and ministry bases</strong><br/>Spaces for discipleship, care, and regional support.</div>
-                <div class="assignment-copy"><strong>Operational tools and logistics</strong><br/>The practical backbone that keeps the work moving.</div>
-              </div>
-            </div>
-            <div class="assignment-closing">What is built in the unseen sustains what happens on the front lines.</div>
-          </div>
-        </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- THE BUILD -->
+<section class="build-section">
+  <div class="build-head reveal">
+    <div class="label">The Build</div>
+    <h2 class="headline">What Builders Make <span class="gold">Possible</span></h2>
+    <p class="build-support">The work on the front lines is sustained by what gets built behind them.</p>
+  </div>
+  <div class="build-grid reveal">
+    <article class="build-card">
+      <img src="assets/build/mobile-command-center.jpg" alt="A mobile command center vehicle prepared for field deployment.">
+      <div class="build-card-copy">
+        <h3 class="build-card-title">Mobile Command Centers</h3>
+        <p class="build-card-body">Built and deployed to support movement on the ground.</p>
+      </div>
+    </article>
+    <article class="build-card">
+      <img src="assets/build/dos-system.jpg" alt="A laptop displaying the D.O.S. operational system dashboard.">
+      <div class="build-card-copy">
+        <h3 class="build-card-title">D.O.S. The System</h3>
+        <p class="build-card-body">Systems and structures that allow the mission to operate across states.</p>
+      </div>
+    </article>
+    <article class="build-card">
+      <img src="assets/build/safe-houses.jpg" alt="A ministry base prepared to serve as a safe house and place of support.">
+      <div class="build-card-copy">
+        <h3 class="build-card-title">Safe Houses and Ministry Bases</h3>
+        <p class="build-card-body">Spaces for discipleship, care, and regional support.</p>
+      </div>
+    </article>
+    <article class="build-card">
+      <img src="assets/build/operations-logistics.jpg" alt="Operational field tools and logistics equipment prepared for deployment.">
+      <div class="build-card-copy">
+        <h3 class="build-card-title">Operational Tools and Logistics</h3>
+        <p class="build-card-body">The practical backbone that keeps the work moving.</p>
+      </div>
+    </article>
   </div>
 </section>
 

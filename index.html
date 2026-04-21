@@ -623,16 +623,26 @@ a { color: inherit; text-decoration: none; }
 .call-verse {
   display: flex;
   flex-direction: column;
-  gap: 54px;
-  margin-bottom: 0;
+  gap: 24px;
+  margin-bottom: 56px;
 }
 .call-verse-line {
   font-family: var(--body);
   font-weight: 300;
-  font-size: clamp(34px, 4vw, 52px);
-  line-height: 1.35;
+  font-size: clamp(28px, 3.5vw, 46px);
+  line-height: 1.3;
   color: var(--text-soft);
   letter-spacing: -0.02em;
+}
+.call-verse-line .gold { color: var(--gold); }
+.call-ref {
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.62em;
+  color: var(--gold);
+  text-transform: uppercase;
+  display: inline-block;
 }
 
 /* ============ GAP ============ */
@@ -1080,12 +1090,14 @@ a { color: inherit; text-decoration: none; }
 <section class="call-section" id="call">
   <div class="call-inner">
     <div class="call-verse reveal">
-      <p class="call-verse-line">The Lord is gathering His people.</p>
-      <p class="call-verse-line">Every gift is needed.</p>
-      <p class="call-verse-line">No one is without purpose.</p>
-      <p class="call-verse-line">No one is without assignment.</p>
-      <p class="call-verse-line">His mission will not fail.</p>
+      <p class="call-verse-line">I HAVE COMMANDED <span class="gold">MY HOLY ONES;</span></p>
+      <p class="call-verse-line">I HAVE <span class="gold">SUMMONED MY WARRIORS</span> TO</p>
+      <p class="call-verse-line">CARRY OUT MY WRATH</p>
+      <p class="call-verse-line">THOSE WHO <span class="gold">REJOICE IN MY TRIUMPH.</span></p>
+      <p class="call-verse-line">THE LORD ALMIGHTY IS</p>
+      <p class="call-verse-line"><span class="gold">MUSTERING AN ARMY</span> FOR <span class="gold">WAR.</span></p>
     </div>
+    <div class="call-ref reveal">Isaiah 13:3-4</div>
   </div>
 </section>
 

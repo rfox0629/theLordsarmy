@@ -1069,7 +1069,50 @@ a { color: inherit; text-decoration: none; }
         <p class="stat-item-body">
           Builders create what holds the movement: infrastructure, systems, platforms, safe houses, tools, logistics. The unseen scaffolding that makes multiplication possible.
         </p>
-        <button class="assignment-toggle build-jump-toggle" type="button" data-target="the-build">Open Assignment</button>
+        <button class="assignment-toggle" type="button" aria-expanded="false" aria-controls="assignment-building">Open Assignment</button>
+        <div class="assignment-panel" id="assignment-building">
+          <div class="assignment-inner">
+            <div class="assignment-section">
+              <div class="assignment-label">The Role</div>
+              <div class="assignment-stack">
+                <div>
+                  <div class="assignment-item-title">Infrastructure</div>
+                  <div class="assignment-copy">Create the physical and operational foundation for the mission to function and grow.</div>
+                </div>
+                <div>
+                  <div class="assignment-item-title">Systems</div>
+                  <div class="assignment-copy">Design repeatable workflows, structures, and processes that bring order and scalability.</div>
+                </div>
+                <div>
+                  <div class="assignment-item-title">Platforms</div>
+                  <div class="assignment-copy">Build digital tools and communication systems that connect people, teams, and mission activity.</div>
+                </div>
+                <div>
+                  <div class="assignment-item-title">Safe Houses</div>
+                  <div class="assignment-copy">Prepare places of refuge, discipleship, restoration, and ministry hospitality.</div>
+                </div>
+                <div>
+                  <div class="assignment-item-title">Tools</div>
+                  <div class="assignment-copy">Create and equip the mission with practical tools needed for effectiveness in the field.</div>
+                </div>
+                <div>
+                  <div class="assignment-item-title">Logistics</div>
+                  <div class="assignment-copy">Coordinate movement, supply, deployment, scheduling, and operational support across regions.</div>
+                </div>
+              </div>
+            </div>
+            <div class="assignment-section">
+              <div class="assignment-label">The Mission</div>
+              <div class="assignment-stack">
+                <div class="assignment-copy"><strong>3 Mobile Command Centers</strong><br/>Built and deployed to support movement on the ground.</div>
+                <div class="assignment-copy"><strong>National infrastructure</strong><br/>Systems and structures that allow the mission to operate across states.</div>
+                <div class="assignment-copy"><strong>Safe houses and ministry bases</strong><br/>Spaces for discipleship, care, and regional support.</div>
+                <div class="assignment-copy"><strong>Operational tools and logistics</strong><br/>The practical backbone that keeps the work moving.</div>
+              </div>
+            </div>
+            <div class="assignment-closing">What is built in the unseen sustains what happens on the front lines.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1229,7 +1272,6 @@ a { color: inherit; text-decoration: none; }
   };
 
   assignmentButtons.forEach((button) => {
-    if (button.classList.contains('build-jump-toggle')) return;
     button.addEventListener('click', () => {
       const isOpen = button.getAttribute('aria-expanded') === 'true';
       assignmentButtons.forEach((otherButton) => {
@@ -1240,14 +1282,6 @@ a { color: inherit; text-decoration: none; }
       } else {
         openAssignment(button);
       }
-    });
-  });
-
-  document.querySelectorAll('.build-jump-toggle').forEach((button) => {
-    button.addEventListener('click', () => {
-      const target = document.getElementById(button.dataset.target);
-      if (!target) return;
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 </script>

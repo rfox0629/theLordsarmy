@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THELORDS.ARMY Store</title>
+  <meta name="description" content="Premium tactical apparel and gear for THELORDS.ARMY. Built for the mission. Made for disciples.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./store.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#top">THELORDS.ARMY</a>
+        <nav class="site-nav" aria-label="Primary" data-nav></nav>
+        <div class="utility-icons" aria-label="Store utilities">
+          <button class="icon-button" type="button" aria-label="Search placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="6"></circle>
+              <path d="M20 20l-4.2-4.2"></path>
+            </svg>
+          </button>
+          <button class="icon-button" type="button" aria-label="Account placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="8" r="4"></circle>
+              <path d="M4 20c1.8-3.3 5-5 8-5s6.2 1.7 8 5"></path>
+            </svg>
+          </button>
+          <button class="icon-button cart-button" type="button" aria-label="Cart placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="9" cy="20" r="1"></circle>
+              <circle cx="18" cy="20" r="1"></circle>
+              <path d="M3 4h2l2.4 10.2a1 1 0 0 0 1 .8h9.7a1 1 0 0 0 1-.8L21 7H7"></path>
+            </svg>
+            <span>0</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <div id="store-app"></div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-top" data-footer-meta></div>
+        <div class="footer-bottom">
+          <p>&copy; <span data-year></span> THELORDS.ARMY. All rights reserved.</p>
+          <nav class="footer-links" aria-label="Footer">
+            <a href="#uniform">Uniform</a>
+            <a href="#gear">Gear</a>
+            <a href="#patches">Patches</a>
+            <a href="#mission">Mission</a>
+            <a href="mailto:contact@thelords.army">Contact</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script type="module" src="./store.js"></script>
+</body>
+</html>

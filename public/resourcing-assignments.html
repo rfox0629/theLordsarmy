@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Resourcing Assignments | The Lord's Army</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Inter:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #050505;
+  --bg-deep: #000000;
+  --bg-card: #0a0806;
+  --text: #f2ebdc;
+  --text-soft: #c8c0ae;
+  --text-muted: #7a7468;
+  --text-dim: #454239;
+  --border: rgba(242,235,220,0.08);
+  --border-strong: rgba(242,235,220,0.16);
+  --gold: #d9a94a;
+  --gold-soft: rgba(217,169,74,0.22);
+  --gold-wash: rgba(217,169,74,0.04);
+  --display: 'Barlow Condensed', 'Impact', sans-serif;
+  --body: 'Inter', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+  --max-w: 1280px;
+  --max-w-wide: 1520px;
+  --max-w-narrow: 960px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg-deep);
+  color: var(--text);
+  font-family: var(--body);
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+a { color: inherit; text-decoration: none; }
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  padding: 22px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--display);
+  font-size: 13px;
+  letter-spacing: 0.28em;
+  color: var(--text-soft);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.brand-cross {
+  width: 10px; height: 10px; position: relative;
+}
+.brand-cross::before, .brand-cross::after {
+  content: ''; position: absolute; background: var(--gold);
+}
+.brand-cross::before { left: 50%; top: 0; bottom: 0; width: 1.5px; transform: translateX(-50%); }
+.brand-cross::after  { top: 35%; left: 0; right: 0; height: 1.5px; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.nav-link {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.nav-link:hover { color: var(--gold); }
+.section {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 140px 48px;
+}
+.section-divider {
+  max-width: var(--max-w-wide);
+  margin: 0 auto;
+  border-top: 1px solid var(--border);
+}
+.section-narrow {
+  max-width: var(--max-w-narrow);
+  margin: 0 auto;
+}
+.eyebrow,
+.label {
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.44em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.eyebrow { margin-bottom: 26px; }
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 34px;
+}
+.label::after {
+  content: '';
+  width: 44px;
+  height: 1px;
+  background: var(--gold-soft);
+}
+.headline {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(44px, 6.2vw, 96px);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.headline .gold { color: var(--gold); }
+.subcopy {
+  max-width: 760px;
+  font-size: clamp(18px, 1.9vw, 22px);
+  line-height: 1.55;
+  color: var(--text-soft);
+}
+.hero {
+  max-width: var(--max-w-wide);
+  margin: 0 auto;
+  padding: 150px 48px 100px;
+}
+.hero-inner {
+  max-width: 980px;
+}
+.hero-title {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(54px, 8vw, 118px);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+.hero-title .gold { color: var(--gold); }
+.hero-sub {
+  max-width: 720px;
+  font-size: clamp(18px, 1.95vw, 23px);
+  color: var(--text-soft);
+}
+.assignment-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+.assignment-card {
+  border: 1px solid var(--border);
+  background: #050505;
+  padding: 36px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.assignment-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.assignment-card-title {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(28px, 3vw, 38px);
+  line-height: 1;
+  text-transform: uppercase;
+}
+.assignment-card-block {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.assignment-mini-label {
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 0.34em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.assignment-item-title {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.assignment-copy,
+.assignment-closing {
+  font-family: var(--body);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-soft);
+}
+.assignment-copy strong {
+  color: var(--gold);
+  font-family: var(--display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+.assignment-number { color: var(--gold); font-weight: 500; }
+.assignment-closing {
+  color: var(--text);
+  font-style: italic;
+  padding-top: 8px;
+}
+.build-section {
+  max-width: var(--max-w-wide);
+  margin: 0 auto;
+  padding: 140px 48px;
+  border-top: 1px solid var(--border);
+}
+.build-head {
+  max-width: 760px;
+  margin-bottom: 56px;
+}
+.build-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+.build-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #0b0b0b;
+}
+.build-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: contain;
+  object-position: center center;
+  display: block;
+  background: #15110d;
+  filter: brightness(1.18) contrast(1.01) saturate(1.03);
+}
+.build-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.46) 20%, rgba(0,0,0,0.12) 42%, rgba(0,0,0,0.02) 68%, rgba(0,0,0,0.00) 100%);
+  pointer-events: none;
+}
+.build-card-copy {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  min-height: 124px;
+  padding: 26px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.build-card-title {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(22px, 2vw, 30px);
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  max-width: 16ch;
+}
+.build-card-body {
+  font-family: var(--body);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text-soft);
+  max-width: 28ch;
+}
+.access-shell {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0,0,0,0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.access-panel {
+  width: min(100%, 560px);
+  border: 1px solid var(--border-strong);
+  background: rgba(5,5,5,0.96);
+  padding: 36px 32px;
+}
+.access-title {
+  font-family: var(--display);
+  font-size: clamp(36px, 6vw, 54px);
+  line-height: 0.94;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.access-title .gold { color: var(--gold); }
+.access-copy {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text-soft);
+  margin-bottom: 28px;
+}
+.access-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.access-input {
+  width: 100%;
+  min-height: 52px;
+  border: 1px solid var(--border-strong);
+  background: #0b0b0b;
+  color: var(--text);
+  padding: 0 16px;
+  font-family: var(--mono);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.access-button {
+  min-height: 48px;
+  border: 1px solid var(--gold);
+  background: var(--gold);
+  color: #000;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.access-error {
+  min-height: 20px;
+  color: #d17777;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+.protected-content[hidden] { display: none !important; }
+@media (max-width: 980px) {
+  .assignment-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 780px) {
+  .nav { padding: 18px 20px; }
+  .nav-links { display: none; }
+  .hero { padding: 130px 24px 80px; }
+  .section { padding: 110px 24px; }
+  .build-section { padding: 110px 24px; }
+  .build-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="access-shell" id="access-shell">
+  <div class="access-panel">
+    <div class="eyebrow">Restricted Access</div>
+    <h1 class="access-title">Enter the <span class="gold">Assignment</span></h1>
+    <p class="access-copy">This page contains protected resourcing details. Enter the password provided to you to continue.</p>
+    <form class="access-form" id="access-form">
+      <input class="access-input" id="access-password" type="password" autocomplete="current-password" placeholder="Password" />
+      <button class="access-button" type="submit">Enter</button>
+      <div class="access-error" id="access-error"></div>
+    </form>
+  </div>
+</div>
+
+<div class="protected-content" id="protected-content" hidden>
+  <nav class="nav">
+    <a href="resourcing.html" class="brand-mark">
+      <span class="brand-cross"></span>
+      <span>The Lord's Army</span>
+    </a>
+    <div class="nav-links">
+      <a href="resourcing.html" class="nav-link">Return to Resourcing</a>
+      <a href="#prayer" class="nav-link">Prayer</a>
+      <a href="#giving" class="nav-link">Giving</a>
+      <a href="#building" class="nav-link">Building</a>
+      <a href="#the-build" class="nav-link">The Build</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Protected Resourcing Brief</div>
+      <h1 class="hero-title">Prayer. Giving. <span class="gold">Building.</span></h1>
+      <p class="hero-sub">The assignment details and infrastructure vision live here behind the gate, kept together in one place for those carrying this part of the work.</p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <section class="section">
+    <div class="section-narrow">
+      <div class="label">Assignments</div>
+      <div class="assignment-grid">
+        <article class="assignment-card" id="prayer">
+          <div class="assignment-card-header">
+            <span class="eyebrow">/ 01</span>
+            <h2 class="assignment-card-title">Prayer</h2>
+          </div>
+          <div class="assignment-card-block">
+            <div class="assignment-mini-label">The Role</div>
+            <div class="assignment-item-title">Core Intercessory Team</div>
+            <div class="assignment-copy">A committed company of <span class="assignment-number">50 intercessors</span> covering the movement in daily prayer.</div>
+            <div class="assignment-item-title">State Intercessors</div>
+            <div class="assignment-copy">One dedicated prayer warrior for every state, interceding daily for their region, leaders, cities, and the advance of the Gospel.</div>
+            <div class="assignment-item-title">Prayer Covering</div>
+            <div class="assignment-copy">Interceding for the Front Lines, Discipleship, Resourcing, and Leadership so the work remains protected, aligned, and empowered.</div>
+          </div>
+          <div class="assignment-card-block">
+            <div class="assignment-mini-label">The Mission</div>
+            <div class="assignment-copy"><strong>50 member intercessory team</strong><br/>A national prayer covering established and active.</div>
+            <div class="assignment-copy"><strong>1 prayer warrior per state</strong><br/>Every state covered daily in focused intercession.</div>
+            <div class="assignment-copy"><strong>Prayer rhythms for the nation</strong><br/>Ongoing prayer for cities, laborers, leaders, and open doors.</div>
+          </div>
+          <div class="assignment-closing">The war is first won in prayer.</div>
+        </article>
+
+        <article class="assignment-card" id="giving">
+          <div class="assignment-card-header">
+            <span class="eyebrow">/ 02</span>
+            <h2 class="assignment-card-title">Giving</h2>
+          </div>
+          <div class="assignment-card-block">
+            <div class="assignment-mini-label">The Role</div>
+            <div class="assignment-item-title">Senders</div>
+            <div class="assignment-copy">Those who give consistently to strengthen the mission and keep laborers moving.</div>
+            <div class="assignment-item-title">Strategic Funders</div>
+            <div class="assignment-copy">Those who help launch large scale projects, systems, ministries, and regional expansion.</div>
+            <div class="assignment-item-title">Kingdom Investors</div>
+            <div class="assignment-copy">Those who see resourcing not as charity, but as assignment.</div>
+          </div>
+          <div class="assignment-card-block">
+            <div class="assignment-mini-label">The Mission</div>
+            <div class="assignment-mini-label">Team Funding</div>
+            <div class="assignment-copy"><strong>3 Generals - <span class="assignment-number">$125,000</span> each</strong><br/>Carry vision, doctrine, and national alignment. Ensure the movement stays unified and on mission.</div>
+            <div class="assignment-copy"><strong>12 Commanders - <span class="assignment-number">$85,000</span> each</strong><br/>Each over a region. Lead execution, expansion, and coordination across states.</div>
+            <div class="assignment-copy"><strong>300 Builders - <span class="assignment-number">$55,000</span> average</strong><br/>The operational force behind the movement. Infrastructure, systems, platforms, safe houses, tools, and logistics.</div>
+            <div class="assignment-copy"><strong>Total Team Funding - <span class="assignment-number">$18,000,000</span> annually</strong></div>
+            <div class="assignment-mini-label">System Funding</div>
+            <div class="assignment-copy"><strong><span class="assignment-number">$2,500,000</span></strong><br/>To build the Disciple Operating System, infrastructure, coordination systems, platforms for scaling, and tools to support discipleship and movement growth.</div>
+            <div class="assignment-mini-label">Ministry Funding</div>
+            <div class="assignment-copy"><strong><span class="assignment-number">$100,000,000</span></strong><br/>To expand what is already happening across front line evangelism, discipleship, regional ministry growth, mission bases, and outreach.</div>
+          </div>
+          <div class="assignment-closing">This is not funding an idea. This is fueling a movement.</div>
+        </article>
+
+        <article class="assignment-card" id="building">
+          <div class="assignment-card-header">
+            <span class="eyebrow">/ 03</span>
+            <h2 class="assignment-card-title">Building</h2>
+          </div>
+          <div class="assignment-card-block">
+            <div class="assignment-mini-label">The Role</div>
+            <div class="assignment-item-title">Infrastructure</div>
+            <div class="assignment-copy">Create the physical and operational foundation for the mission to function and grow.</div>
+            <div class="assignment-item-title">Systems</div>
+            <div class="assignment-copy">Design repeatable workflows, structures, and processes that bring order and scalability.</div>
+            <div class="assignment-item-title">Platforms</div>
+            <div class="assignment-copy">Build digital tools and communication systems that connect people, teams, and mission activity.</div>
+            <div class="assignment-item-title">Safe Houses</div>
+            <div class="assignment-copy">Prepare places of refuge, discipleship, restoration, and ministry hospitality.</div>
+            <div class="assignment-item-title">Tools</div>
+            <div class="assignment-copy">Create and equip the mission with practical tools needed for effectiveness in the field.</div>
+            <div class="assignment-item-title">Logistics</div>
+            <div class="assignment-copy">Coordinate movement, supply, deployment, scheduling, and operational support across regions.</div>
+          </div>
+          <div class="assignment-card-block">
+            <div class="assignment-mini-label">The Mission</div>
+            <div class="assignment-copy"><strong>3 Mobile Command Centers</strong><br/>Built and deployed to support movement on the ground.</div>
+            <div class="assignment-copy"><strong>National infrastructure</strong><br/>Systems and structures that allow the mission to operate across states.</div>
+            <div class="assignment-copy"><strong>Safe houses and ministry bases</strong><br/>Spaces for discipleship, care, and regional support.</div>
+            <div class="assignment-copy"><strong>Operational tools and logistics</strong><br/>The practical backbone that keeps the work moving.</div>
+          </div>
+          <div class="assignment-closing">What is built in the unseen sustains what happens on the front lines.</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="build-section" id="the-build">
+    <div class="build-head">
+      <div class="label">The Build</div>
+      <h2 class="headline">What Builders Make <span class="gold">Possible</span></h2>
+      <p class="subcopy">The work on the front lines is sustained by what gets built behind them.</p>
+    </div>
+    <div class="build-grid">
+      <article class="build-card">
+        <img src="assets/build/mobile-command-center.jpg" alt="A mobile command center vehicle prepared for field deployment.">
+        <div class="build-card-copy">
+          <h3 class="build-card-title">Mobile Command Centers</h3>
+          <p class="build-card-body">Built and deployed to support movement on the ground.</p>
+        </div>
+      </article>
+      <article class="build-card">
+        <img src="assets/build/dos-system.jpg" alt="A laptop displaying the D.O.S. operational system dashboard.">
+        <div class="build-card-copy">
+          <h3 class="build-card-title">D.O.S. The System</h3>
+          <p class="build-card-body">Systems and structures that allow the mission to operate across states.</p>
+        </div>
+      </article>
+      <article class="build-card">
+        <img src="assets/build/safe-houses.jpg" alt="A ministry base prepared to serve as a safe house and place of support.">
+        <div class="build-card-copy">
+          <h3 class="build-card-title">Safe Houses and Ministry Bases</h3>
+          <p class="build-card-body">Spaces for discipleship, care, and regional support.</p>
+        </div>
+      </article>
+      <article class="build-card">
+        <img src="assets/build/operations-logistics.jpg" alt="Operational field tools and logistics equipment prepared for deployment.">
+        <div class="build-card-copy">
+          <h3 class="build-card-title">Operational Tools and Logistics</h3>
+          <p class="build-card-body">The practical backbone that keeps the work moving.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+</div>
+
+<script>
+  // Change this value before sharing publicly.
+  const ACCESS_PASSWORD = 'ASSIGNMENT';
+  const ACCESS_KEY = 'tla_resourcing_access';
+
+  const accessShell = document.getElementById('access-shell');
+  const protectedContent = document.getElementById('protected-content');
+  const accessForm = document.getElementById('access-form');
+  const accessInput = document.getElementById('access-password');
+  const accessError = document.getElementById('access-error');
+
+  const unlock = () => {
+    sessionStorage.setItem(ACCESS_KEY, 'granted');
+    accessShell.style.display = 'none';
+    protectedContent.hidden = false;
+    const hash = window.location.hash;
+    if (hash) {
+      requestAnimationFrame(() => {
+        const target = document.querySelector(hash);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+  };
+
+  if (sessionStorage.getItem(ACCESS_KEY) === 'granted') {
+    unlock();
+  }
+
+  accessForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (accessInput.value === ACCESS_PASSWORD) {
+      accessError.textContent = '';
+      unlock();
+      return;
+    }
+    accessError.textContent = 'Incorrect password';
+  });
+</script>
+</body>
+</html>

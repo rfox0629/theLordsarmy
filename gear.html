@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THELORDS.ARMY Gear</title>
+  <meta name="description" content="THELORDS.ARMY gear page. This is a uniform. Built for the mission. Made for disciples.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./gear.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top">THELORDS.ARMY</a>
+      <nav class="site-nav" aria-label="Primary" data-nav></nav>
+      <div class="header-tools" aria-label="Utilities">
+        <button class="header-icon" type="button" aria-label="Search placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="6"></circle>
+            <path d="M20 20l-4.2-4.2"></path>
+          </svg>
+        </button>
+        <button class="header-icon" type="button" aria-label="Account placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="8" r="4"></circle>
+            <path d="M4 20c1.8-3.3 5-5 8-5s6.2 1.7 8 5"></path>
+          </svg>
+        </button>
+        <button class="header-icon" type="button" aria-label="Cart placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="20" r="1"></circle>
+            <circle cx="18" cy="20" r="1"></circle>
+            <path d="M3 4h2l2.4 10.2a1 1 0 0 0 1 .8h9.7a1 1 0 0 0 1-.8L21 7H7"></path>
+          </svg>
+          <span class="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <div id="gear-app"></div>
+  </main>
+
+  <footer class="site-footer" id="mission">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h2>THELORDS.ARMY</h2>
+          <p class="footer-brand-line">A movement. Not a brand.</p>
+          <p class="footer-caption">Join the army.</p>
+        </div>
+        <div class="footer-columns" data-footer-columns></div>
+        <div class="footer-signup">
+          <h3>Stay Prepared</h3>
+          <p>Get updates on new drops, missions, and more.</p>
+          <form class="footer-signup-form">
+            <input type="email" name="email" placeholder="Enter your email">
+            <button type="submit" aria-label="Submit email">&rarr;</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span data-year></span> THELORDS.ARMY. All rights reserved.</p>
+        <nav class="footer-bottom-links" aria-label="Footer links">
+          <a href="#uniform">Uniform</a>
+          <a href="#patches">Patches</a>
+          <a href="#mission-strip">Mission</a>
+          <a href="mailto:contact@thelords.army">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="./gear.js"></script>
+</body>
+</html>

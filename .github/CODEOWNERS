@@ -1,0 +1,23 @@
+# CODEOWNERS for rfox0629/theLordsarmy.
+# Current verified owner: founder account @rfox0629.
+
+* @rfox0629
+
+# GitHub metadata and CI
+/.github/CODEOWNERS @rfox0629
+/.github/workflows/ @rfox0629
+
+# Deployment configuration
+/vercel.json @rfox0629
+
+# Application boundary: The Lord's Army static site
+/index.html @rfox0629
+/lords-army.html @rfox0629
+/discipleship.html @rfox0629
+/frontlines.html @rfox0629
+/leadership.html @rfox0629
+/resourcing.html @rfox0629
+/resourcing-assignments.html @rfox0629
+/styles.css @rfox0629
+/assets/ @rfox0629
+/lords-army-hero.jpg @rfox0629
